@@ -2,7 +2,7 @@ import * as React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionic from 'react-native-ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Screens
 import AccountScreen from './screen/AccountScreen';
@@ -46,7 +46,7 @@ function MainContainer() {
             }
 
             // You can return any component that you like here!
-            return <Ionic name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
         ScreenOptions={{
