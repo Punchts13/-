@@ -1,7 +1,8 @@
 import * as React from 'react';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionic from 'react-native-vector-icons/Ionicons';
+import Ionic from 'react-native-ionicons';
 
 // Screens
 import AccountScreen from './screen/AccountScreen';
@@ -48,10 +49,10 @@ function MainContainer() {
             return <Ionic name={iconName} size={size} color={color} />;
           },
         })}
-        tabBarOptions={{
-          activeTintColor: '#12358F',
-          inactiveTintColor: '#727272',
-          labelStyle: { paddingBottom: 10, fontSize: 10 },
+        ScreenOptions={{
+          tapactiveTintColor: '#12358F',
+          tapinactiveTintColor: '#727272',
+          taplabelStyle: { paddingBottom: 10, fontSize: 10 },
           style: { padding: 10, height: 70}
         }}>
 
