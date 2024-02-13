@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+
 // Screens
 import AccountScreen from './screen/AccountScreen';
 import BookingScreen from './screen/BookingScreen';
@@ -28,27 +29,33 @@ function MainContainer() {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
+            let scheduleicon;
             let rn = route.name;
 
             if (rn === homeName) {
               iconName = focused ? 'home' : 'home-outline';
 
             } else if (rn === BookingName) {
-              iconName = focused ? 'list' : 'list-outline';
+              iconName = focused ? 'today' : 'today-outline';
 
             } else if (rn === AcoountsName) {
-              iconName = focused ? 'settings' : 'settings-outline';
+              iconName = focused ? 'person' : 'person-outline';
             } else if (rn === ScheduleName) {
-              iconName = focused ? 'settings' : 'settings-outline';
+              iconName = focused ? 'calendar' : 'calendar-outline';
 
             } else if (rn === IdsName) {
-              iconName = focused ? 'settings' : 'settings-outline';
+              iconName = focused ? 'card' : 'card-outline';
             }
 
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
+            
           },
         })}
+
+        
+
+        
         ScreenOptions={{
           tapactiveTintColor: '#12358F',
           tapinactiveTintColor: '#727272',
