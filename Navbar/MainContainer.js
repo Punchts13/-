@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View ,Image, TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,19 +21,47 @@ const IdsName = "บัตรนักศึกษา";
 
 const Tab = createBottomTabNavigator();
 
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: -100,
+      
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 3.5,
+    elevation: 5
+  }
+
+});
+
+
 function MainContainer() {
   return (
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName={homeName}
+
         screenOptions={({ route }) => ({
+          tabBarShowLabel: false,
+          tabBarStyle:{
+            position: 'absolute',
+            borderTopRightRadius: 30,
+            borderTopLeftRadius: 30,
+            backgroundColor: '#ffffff' ,
+            height: 90,
+            elevation: 0,
+            ...styles.shadow
+          },
+
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-            let scheduleicon;
             let rn = route.name;
 
             if (rn === homeName) {
               iconName = focused ? 'home' : 'home-outline';
+             
 
             } else if (rn === BookingName) {
               iconName = focused ? 'today' : 'today-outline';
@@ -53,9 +81,6 @@ function MainContainer() {
           },
         })}
 
-        
-
-        
         ScreenOptions={{
           tapactiveTintColor: '#12358F',
           tapinactiveTintColor: '#727272',
@@ -71,7 +96,10 @@ function MainContainer() {
 
       </Tab.Navigator>
     </NavigationContainer>
+
+    
   );
 }
+
 
 export default MainContainer;
