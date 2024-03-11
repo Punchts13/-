@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
+
 // Screens
 import AccountScreen from './screen/AccountScreen';
 import BookingScreen from './screen/BookingScreen';
@@ -53,7 +54,6 @@ function MainContainer() {
             backgroundColor: '#ffffff' ,
             height: 90,
             elevation: 0,
-            ...styles.shadow
           },
         
         })}
@@ -78,6 +78,7 @@ function MainContainer() {
             </View>
           )
         }}></Tab.Screen>
+
         <Tab.Screen name={BookingName} component={BookingScreen} options={{
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center',justifyContent: 'center'}}>
@@ -91,19 +92,24 @@ function MainContainer() {
             </View>
           )
         }}></Tab.Screen>
+
         <Tab.Screen name={AcoountsName} component={AccountScreen} options={{
           tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center',justifyContent: 'center'}}>
-              <Ionicons
-                name={focused? 'person' : 'person-outline'}
-                size={28} 
-                color={focused? '#12358F' : '#727272'} 
-              >
-              </Ionicons>
-              <Text style={{color:focused? '#12358F' : '#727272', fontSize:12 }}>home</Text>
+            <View style={{alignItems: 'center',
+            justifyContent: 'center', 
+            width: 55 ,
+            height: 55 , 
+            backgroundColor: focused? '#12358F' : '#727272' , 
+            borderRadius: 30, 
+            top: -10,
+            ...styles.shadow
+
+            }}>
+             
             </View>
           )
         }}></Tab.Screen>
+
         <Tab.Screen name={ScheduleName} component={ScheduleScreen} options={{
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center',justifyContent: 'center'}}>
@@ -117,6 +123,7 @@ function MainContainer() {
             </View>
           )
         }}></Tab.Screen>
+
         <Tab.Screen name={IdsName} component={Id_cardScreen} options={{
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center',justifyContent: 'center' }}>
