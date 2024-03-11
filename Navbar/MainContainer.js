@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
-      height: -100,
+      height: 10,
       
     },
     shadowOpacity: 0.5,
@@ -45,6 +45,7 @@ function MainContainer() {
 
         screenOptions={({ route }) => ({
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarStyle:{
             position: 'absolute',
             borderTopRightRadius: 30,
@@ -54,31 +55,7 @@ function MainContainer() {
             elevation: 0,
             ...styles.shadow
           },
-
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            let rn = route.name;
-
-            if (rn === homeName) {
-              iconName = focused ? 'home' : 'home-outline';
-             
-
-            } else if (rn === BookingName) {
-              iconName = focused ? 'today' : 'today-outline';
-
-            } else if (rn === AcoountsName) {
-              iconName = focused ? 'person' : 'person-outline';
-            } else if (rn === ScheduleName) {
-              iconName = focused ? 'calendar' : 'calendar-outline';
-
-            } else if (rn === IdsName) {
-              iconName = focused ? 'card' : 'card-outline';
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-            
-          },
+        
         })}
 
         ScreenOptions={{
@@ -88,11 +65,71 @@ function MainContainer() {
           style: { padding: 10, height: 70}
         }}>
 
-        <Tab.Screen name={homeName} component={HomeScreen} />
-        <Tab.Screen name={BookingName} component={BookingScreen} />
-        <Tab.Screen name={AcoountsName} component={AccountScreen} />
-        <Tab.Screen name={ScheduleName} component={ScheduleScreen} />
-        <Tab.Screen name={IdsName} component={Id_cardScreen} />
+        <Tab.Screen name={homeName} component={HomeScreen} options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center',justifyContent: 'center'}}>
+              <Ionicons
+                 name={focused? 'home' : 'home-outline'}
+                size={28} 
+                color={focused? '#12358F' : '#727272'} 
+              >
+              </Ionicons>
+              <Text style={{color:focused? '#12358F' : '#727272', fontSize:12 }}>Home</Text>
+            </View>
+          )
+        }}></Tab.Screen>
+        <Tab.Screen name={BookingName} component={BookingScreen} options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center',justifyContent: 'center'}}>
+              <Ionicons
+                 name={focused? 'today' : 'today-outline'}
+                size={28} 
+                color={focused? '#12358F' : '#727272'} 
+              >
+              </Ionicons>
+              <Text style={{color:focused? '#12358F' : '#727272', fontSize:12 }}>ระบบจองห้อง</Text>
+            </View>
+          )
+        }}></Tab.Screen>
+        <Tab.Screen name={AcoountsName} component={AccountScreen} options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center',justifyContent: 'center'}}>
+              <Ionicons
+                name={focused? 'person' : 'person-outline'}
+                size={28} 
+                color={focused? '#12358F' : '#727272'} 
+              >
+              </Ionicons>
+              <Text style={{color:focused? '#12358F' : '#727272', fontSize:12 }}>home</Text>
+            </View>
+          )
+        }}></Tab.Screen>
+        <Tab.Screen name={ScheduleName} component={ScheduleScreen} options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center',justifyContent: 'center'}}>
+              <Ionicons
+                name={focused? 'calendar' : 'calendar-outline'}
+                size={28} 
+                color={focused? '#12358F' : '#727272'} 
+              >
+              </Ionicons>
+              <Text style={{color:focused? '#12358F' : '#727272', fontSize:10 }}>ตารางเรียน/สอบ</Text>
+            </View>
+          )
+        }}></Tab.Screen>
+        <Tab.Screen name={IdsName} component={Id_cardScreen} options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center',justifyContent: 'center' }}>
+              <Ionicons
+                 name={focused? 'card' : 'card-outline'}
+                size={28} 
+                color={focused? '#12358F' : '#727272'} 
+              >
+              </Ionicons>
+              <Text style={{color:focused? '#12358F' : '#727272', fontSize:12 }}>บัตรนักศึกษา</Text>
+            </View>
+          )
+        }}></Tab.Screen>
 
       </Tab.Navigator>
     </NavigationContainer>
