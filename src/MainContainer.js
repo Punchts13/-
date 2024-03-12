@@ -102,7 +102,7 @@ function MainContainer() {
             height: 60 , 
             backgroundColor: focused? '#12358F' : '#727272' , 
             borderRadius: 30, 
-            top: -10,
+            top: -5,
             ...styles.shadow
 
             }}>
