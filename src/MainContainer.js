@@ -26,14 +26,7 @@ const Tab = createBottomTabNavigator();
 const styles = StyleSheet.create({
   shadow: {
     shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-      
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 3.5,
-    elevation: 5
+    elevation: 6
   }
 
 });
@@ -53,8 +46,8 @@ function MainContainer() {
             borderTopRightRadius: 30,
             borderTopLeftRadius: 30,
             backgroundColor: '#ffffff' ,
-            height: 90,
-            elevation: 0,
+            height: 80,
+            elevation: 20,
           },
         
         })}
@@ -68,14 +61,15 @@ function MainContainer() {
 
         <Tab.Screen name={homeName} component={HomeScreen} options={{
           tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center',justifyContent: 'center'}}>
+            <View style={{alignItems: 'center',justifyContent: 'center',}}>
               <Ionicons
-                 name={focused? 'home' : 'home-outline'}
+                name={focused? 'home' : 'home-outline'}
                 size={28} 
-                color={focused? '#12358F' : '#727272'} 
+                color={focused? '#12358F' : '#727272'}
+                
               >
               </Ionicons>
-              <Text style={{color:focused? '#12358F' : '#727272', fontSize:12 }}>Home</Text>
+              <Text style={{color:focused? '#12358F' : '#727272', fontSize:12  }}>Home</Text>
             </View>
           )
         }}></Tab.Screen>
@@ -100,14 +94,13 @@ function MainContainer() {
             justifyContent: 'center', 
             width: 60 ,
             height: 60 , 
-            backgroundColor: focused? '#12358F' : '#727272' , 
+            backgroundColor: focused? '#12358F' : '#ffffff' , 
             borderRadius: 30, 
             top: -5,
             ...styles.shadow
-
             }}>
               <Image 
-                  source={require('./college-student.jpg')} 
+                  source={require('./image/college-student.jpg')} 
                   style={{ width: 55, height: 55, borderRadius: 30, }} 
               />
              
